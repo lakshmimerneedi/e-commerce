@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cards-product img{
+    width: 100%;
+    height: 300px;
+}
+.cards-product{
+    box-shadow: 1px 1px 5px 0px;
+    height: 450px;
+    padding: 0px 5px;
+}
+.cards-product h6{
+    font-weight: 2500;
+}
+.btn{
+    border: 5px solid black;
+}
+.navigation{
+     display: flex;
+}
+.items{
+    width: 30%;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    right:0;
+    background: white;
+transform: translateX(1000px);
+    transition: all 0.4s ease-in-out ;
+
+}
+.items-active{
+transform: translateX(0px);
+    transition: all 0.4s ease-in-out ;
+}
+.wrong{
+text-align: end;
+}
