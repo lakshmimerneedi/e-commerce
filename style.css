@@ -9,7 +9,7 @@
 }
 .cards-product{
     box-shadow: 1px 1px 5px 0px;
-    height: 450px;
+    height: 490px;
     padding: 0px 5px;
 }
 .cards-product h6{
@@ -31,11 +31,13 @@
 transform: translateX(1000px);
     transition: all 0.4s ease-in-out ;
 
+
 }
 .items-active{
 transform: translateX(0px);
     transition: all 0.4s ease-in-out ;
 }
-.wrong{
-text-align: end;
+
+.interval-active{
+    display: none;
 }
