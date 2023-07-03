@@ -7,8 +7,9 @@
     <title>E-commerce</title>
     <!-- link css -->
     <link rel="stylesheet" href="/style.css">
-
+    <!-- link bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- fontawsome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,31 +33,62 @@
     </nav>
     <section class="cart-items">
         <div class="items">
-            <i class="fa-solid fa-x wrong" onclick="cartFunction()"></i>
-
+            <i class="fa-solid fa-x" onclick="cartFunction()"></i>
+            <div class="listempty"></div>
         </div>
+       
+    </section>
+
+    <!-- toast section -->
+    <section>
+        <div aria-live="polite" aria-atomic="true" class="position-relative">
+            <!-- Position it: -->
+            <!-- - `.toast-container` for spacing between toasts -->
+            <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
+            <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+            <div class="toast-container position-absolute top-0 end-0 p-3">
+          
+              <!-- Then put toasts within -->
+              <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                  <img src="..." class="rounded me-2" alt="...">
+                  <strong class="me-auto">Bootstrap</strong>
+                  <small class="text-muted">just now</small>
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                  See? Just like this.
+                </div>
+              </div>
+          
+              <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                  <img src="..." class="rounded me-2" alt="...">
+                  <strong class="me-auto">Bootstrap</strong>
+                  <small class="text-muted">2 seconds ago</small>
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                  Heads up, toasts will stack automatically
+                </div>
+              </div>
+            </div>
+          </div>
     </section>
    
-
-
-
-
-
     <!-- Map function starts -->
     <section>
         <div class="container">
             <div class="row g-4 cards-ecommerce">
-
             </div>
         </div>
     </section>
     <!-- Map function ends -->
 
 
-    <button class="interval">hello world...!</button>
-  
 
-    <script src="/main.js"></script>
+    <!-- <button class="interval">hello world...!</button> -->
+     <script src="/main.js"></script>
 
 </body>
 

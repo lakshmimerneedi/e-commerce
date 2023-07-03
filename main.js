@@ -5,14 +5,14 @@ let cardsData =[{id:1,title:"Jeans",price:1000.20,description:"casual mens wear 
 let data = "";
 cardsData.map(function cardsFunction(items){
     data += `
-        <div class="col-lg-4" data-id="${items.id}">
+        <div class="col-lg-4" >
             <div class="cards-product">
                 <img src=${items.image} alt="">
                 <h4>Title :- <span>${items.title}</span></h4>
                 <h6>Price :- <span>${items.price}</span></h6>   
                 <h6>Rating :- <span>${items.rating.rate}</span></h6>    
                 <h6>Count :- <span>${items.rating.count}</span></h6>
-                <button onclick = "deleteButton(${items.id})">Delete</button>
+               <button onclick="addToCart(${items.id})">Add to cart</button>
                     
             </div>
         </div>
@@ -20,18 +20,51 @@ cardsData.map(function cardsFunction(items){
     document.querySelector(".cards-ecommerce").innerHTML = data;
 });
 
-function deleteButton(id){
-    const deleteItems = document.querySelector(`[data-id="${id}"]`);
-    deleteItems.style.display = "none";
-    const filterArray = cardsData.filter(function filterFunction(items){
-        return items.id !== id;
-    });
-    cardsData = filterArray;
-    console.log(cardsData);
-};
-     const cartItems = document.querySelector(".items"); 
+const cartItems = document.querySelector(".items"); 
+  let cartList = [];
+  let cartData = "";
+
 function cartFunction(){
 cartItems.classList.toggle("items-active");
+if(cartList.length === 0){
+    document.querySelector(".listempty").innerHTML = "There is no items in the cart";
+}else{
+    cartList.map(function cardsFunction(items){
+        cartData +=`
+        <div class="" data-id="${items.id}">
+                    <div class="cartstyle d-flex align-items-center justify-content-between">
+                       <img src=${items.image} alt="">
+                        <div><h6><span>${items.title}</span></h6>
+                        <p>Price :- <span>${items.price}</span></p>   
+                          <p class="rating">Rating :- <span>${items.rating.rate}</span></p>
+                          </div>    
+                          <i class="fa-solid fa-x" onclick="deleteButton(${items.id})"></i>
+                    </div>
+                </div>
+            `
+            document.querySelector(".listempty").innerHTML = cartData;
+        });
+}
+};
+
+function addToCart(id){
+   const filterItem = cardsData.find(function findFunction(items){
+        return items.id === id;
+    });
+    console.log(id);
+    cartList.push(filterItem);
+    console.log(cartList);
+}
+
+
+function deleteButton(id){
+const deleteItems = document.querySelector(`[data-id="${id}"]`);
+deleteItems.style.display = "none";
+    const filterArray = cartList.filter(function filterFunction(items){
+        return items.id !== id;
+    });
+    cartList = filterArray;
+    console.log(cardsData);
 };
 
 // js dates..........
@@ -50,6 +83,20 @@ cartItems.classList.toggle("items-active");
 // get methods...............
 //   const d = new Date();
 // console.log(d);
+
+
+
+
+// /  find......
+// const find = studata.find(function myFunction(data){
+//   return data.age<20;
+// });
+// console.log(find);
+// // foreach...............
+// studata.forEach(function myFunction(data){
+//   console.log(data.group);
+// });
+
 
 // const year = d.getFullYear();
 // console.log(year);
@@ -197,3 +244,4 @@ cartItems.classList.toggle("items-active");
 // },2000);
 
 // conditional statementa............
+
