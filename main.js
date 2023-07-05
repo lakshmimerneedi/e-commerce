@@ -22,13 +22,12 @@ cardsData.map(function cardsFunction(items){
 
 const cartItems = document.querySelector(".items"); 
   let cartList = [];
-  let cartData = "";
-
 function cartFunction(){
 cartItems.classList.toggle("items-active");
 if(cartList.length === 0){
-    document.querySelector(".listempty").innerHTML = "There is no items in the cart";
+    document.querySelector(".listempty").innerHTML = `<img class="image" src="/assets/cart1.png" alt="">`;
 }else{
+    let cartData = "";
     cartList.map(function cardsFunction(items){
         cartData +=`
         <div class="" data-id="${items.id}">
@@ -38,25 +37,40 @@ if(cartList.length === 0){
                         <p>Price :- <span>${items.price}</span></p>   
                           <p class="rating">Rating :- <span>${items.rating.rate}</span></p>
                           </div>    
-                          <i class="fa-solid fa-x" onclick="deleteButton(${items.id})"></i>
+                          <i class="fa-solid fa-x wrong" onclick="deleteButton(${items.id})"></i>
                     </div>
                 </div>
             `
             document.querySelector(".listempty").innerHTML = cartData;
+       
         });
 }
 };
-
+// add to cart button function
 function addToCart(id){
    const filterItem = cardsData.find(function findFunction(items){
         return items.id === id;
     });
-    console.log(id);
-    cartList.push(filterItem);
-    console.log(cartList);
+    // toast meesage
+if(filterItem){
+    const findIndex = cartList.findIndex(function indexFunction(items){
+        return items.id === id;
+    });
+    if(findIndex !==-1){
+        document.querySelector(".toast-notification").classList.add("toast-notification-active");
+        setTimeout(function timeOutFunction(){
+            document.querySelector(".toast-notification").classList.remove("toast-notification-active");
+        }, 2000);
+    }else{
+        cartList.push(filterItem);
+        console.log(cartList);
+    };
+};
+    document.querySelector(".increment").innerHTML = cartList.length;
 }
 
 
+// cart  delete button add
 function deleteButton(id){
 const deleteItems = document.querySelector(`[data-id="${id}"]`);
 deleteItems.style.display = "none";
@@ -65,6 +79,7 @@ deleteItems.style.display = "none";
     });
     cartList = filterArray;
     console.log(cardsData);
+    document.querySelector(".increment").innerHTML = cartList.length;
 };
 
 // js dates..........

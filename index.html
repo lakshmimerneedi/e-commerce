@@ -17,7 +17,7 @@
 
 <body>
     <!-- nav bar -->
-    <nav class="container">
+    <nav class="container nav-bar">
 
         <div class="d-flex justify-content-between align-items-center">
             <div class="navigation">
@@ -27,20 +27,22 @@
                 <input class="search-bar" type="search" placeholder="Search" aria-label="Search">
                 <i class="fa-solid fa-magnifying-glass bar"></i> 
             </form>
-            <i class="fa-solid fa-cart-shopping" onclick="cartFunction()"></i>
-
+        <div class="cart-style position-relative">
+          <i class="fa-solid fa-cart-shopping" onclick="cartFunction()"></i>
+          <p class="increment">0</p>
         </div>
+      </div>
     </nav>
     <section class="cart-items">
         <div class="items">
-            <i class="fa-solid fa-x" onclick="cartFunction()"></i>
+            <i class="fa-solid fa-x wrong" onclick="cartFunction()"></i>
             <div class="listempty"></div>
         </div>
        
     </section>
 
     <!-- toast section -->
-    <section>
+    <section class="toast-notification">
         <div aria-live="polite" aria-atomic="true" class="position-relative">
             <!-- Position it: -->
             <!-- - `.toast-container` for spacing between toasts -->
@@ -50,26 +52,8 @@
           
               <!-- Then put toasts within -->
               <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                  <img src="..." class="rounded me-2" alt="...">
-                  <strong class="me-auto">Bootstrap</strong>
-                  <small class="text-muted">just now</small>
-                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
                 <div class="toast-body">
-                  See? Just like this.
-                </div>
-              </div>
-          
-              <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                  <img src="..." class="rounded me-2" alt="...">
-                  <strong class="me-auto">Bootstrap</strong>
-                  <small class="text-muted">2 seconds ago</small>
-                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                  Heads up, toasts will stack automatically
+                  This item already in the cart
                 </div>
               </div>
             </div>
